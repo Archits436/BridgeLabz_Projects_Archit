@@ -76,6 +76,17 @@ public class AddressBook {
             memberinfo.replace(first_name+" "+last_name,contact);
             System.out.println("User Updated !!!");
             System.out.println("");
+
+//                    for(Map.Entry<String,Contact> iterate: memberinfo.entrySet()){
+//                        System.out.println(iterate.getValue().getFirstname());
+//                        System.out.println(iterate.getValue().getLastname());
+//                        System.out.println(iterate.getValue().getAddress());
+//                        System.out.println(iterate.getValue().getCity());
+//                        System.out.println(iterate.getValue().getState());
+//                        System.out.println(iterate.getValue().getZip());
+//                        System.out.println(iterate.getValue().getPhone_no());
+//                        System.out.println(iterate.getValue().getEmail());
+//                    }
         }
         else{
             System.out.println("User Not Found !!");
@@ -100,5 +111,18 @@ public class AddressBook {
             System.out.println("User Not Found !!!");
             System.out.println("");
         }
+    }
+
+    public static void addmultiplecontact(HashMap<String,Contact> memberinfo){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter no of elements you want to add: ");
+        int no = sc.nextInt();
+
+        for(int i=1;i<=no;i++){
+            System.out.println("");
+            System.out.println("Enter Details for User "+i);
+            addcontact(memberinfo);
+        }
+
     }
 }
