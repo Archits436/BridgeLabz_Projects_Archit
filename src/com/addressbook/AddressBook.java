@@ -81,4 +81,24 @@ public class AddressBook {
             System.out.println("User Not Found !!");
         }
     }
+
+    public static void deletecontact(HashMap<String, Contact> memberinfo){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Firstname: ");
+        String first_name = sc.nextLine();
+
+        System.out.println("Enter Lastname: ");
+        String last_name = sc.nextLine();
+
+        if(memberinfo.containsKey(first_name+" "+last_name)){
+            memberinfo.remove(first_name+" "+last_name);
+            System.out.println("User Deleted !!!");
+            System.out.println("");
+        }
+        else{
+            System.out.println("User Not Found !!!");
+            System.out.println("");
+        }
+    }
 }

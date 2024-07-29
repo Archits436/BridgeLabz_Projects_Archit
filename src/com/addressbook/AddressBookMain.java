@@ -1,38 +1,36 @@
 package com.addressbook;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBookMain {
     public static void main(String[] args){
-        Contact contact = new Contact();
+        int i;
         Scanner sc = new Scanner(System.in);
+        HashMap<String, Contact> memberinfo = new HashMap<>();
+        AddressBook functions = new AddressBook();
 
-        System.out.println("Enter User Firstname: ");
-        String first_name = sc.nextLine();
+        do{
+            System.out.println("Enter your Choice: ");
+            System.out.println("1. Add Contact");
+            System.out.println("2. Edit Contact");
+            System.out.println("3. Delete Contact");
+            System.out.println("4. Exit");
+            i = sc.nextInt();
+            sc.nextLine();
 
-        System.out.println("Enter User Lastname: ");
-        String last_name = sc.nextLine();
+            if(i==1){
+                functions.addcontact(memberinfo);
+            }
+            else if(i==2){
+                functions.editcontact(memberinfo);
+            }
+            else if(i==3){
+                functions.deletecontact(memberinfo);
+            }
+            else{
+                System.out.println("Invalid Option !!!");
+            }
 
-        System.out.println("Enter User Address: ");
-        String address = sc.nextLine();
-
-        System.out.println("Enter User City: ");
-        String city = sc.nextLine();
-
-        System.out.println("Enter User State: ");
-        String state = sc.nextLine();
-
-        System.out.println("Enter User ZIP: ");
-        int zip = sc.nextInt();
-
-        System.out.println("Enter User Phone No: ");
-        int phone = sc.nextInt();
-        sc.nextLine();
-
-        System.out.println("Enter User Email: ");
-        String email = sc.nextLine();
-
-        contact.set(first_name,last_name,address,city,state,zip,phone,email);
-        System.out.println("User Added !!!");
-
+        }while(i!=4);
     }
 }
