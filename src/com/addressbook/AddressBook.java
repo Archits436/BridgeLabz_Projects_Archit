@@ -13,30 +13,37 @@ public class AddressBook {
         System.out.println("Enter User Lastname: ");
         String last_name = sc.nextLine();
 
-        System.out.println("Enter User Address: ");
-        String address = sc.nextLine();
+        if(memberinfo.containsKey(first_name+" "+last_name)){
+            System.out.println("Sorry This User Already Exists !!!");
+            System.out.println("");
+            return;
+        }
+        else{
+            System.out.println("Enter User Address: ");
+            String address = sc.nextLine();
 
-        System.out.println("Enter User City: ");
-        String city = sc.nextLine();
+            System.out.println("Enter User City: ");
+            String city = sc.nextLine();
 
-        System.out.println("Enter User State: ");
-        String state = sc.nextLine();
+            System.out.println("Enter User State: ");
+            String state = sc.nextLine();
 
-        System.out.println("Enter User ZIP: ");
-        int zip = sc.nextInt();
+            System.out.println("Enter User ZIP: ");
+            int zip = sc.nextInt();
 
-        System.out.println("Enter User Phone No: ");
-        long phone = sc.nextLong();
-        sc.nextLine();
+            System.out.println("Enter User Phone No: ");
+            long phone = sc.nextLong();
+            sc.nextLine();
 
-        System.out.println("Enter User Email: ");
-        String email = sc.nextLine();
+            System.out.println("Enter User Email: ");
+            String email = sc.nextLine();
 
-        Contact contact = new Contact();
-        contact.set(first_name,last_name,address,city,state,zip,phone,email);
-        memberinfo.put(first_name+" "+last_name,contact);
-        System.out.println("User Added !!!");
-        System.out.println("");
+            Contact contact = new Contact();
+            contact.set(first_name,last_name,address,city,state,zip,phone,email);
+            memberinfo.put(first_name+" "+last_name,contact);
+            System.out.println("User Added !!!");
+            System.out.println("");
+        }
     }
 
 
@@ -76,17 +83,6 @@ public class AddressBook {
             memberinfo.replace(first_name+" "+last_name,contact);
             System.out.println("User Updated !!!");
             System.out.println("");
-
-//                    for(Map.Entry<String,Contact> iterate: memberinfo.entrySet()){
-//                        System.out.println(iterate.getValue().getFirstname());
-//                        System.out.println(iterate.getValue().getLastname());
-//                        System.out.println(iterate.getValue().getAddress());
-//                        System.out.println(iterate.getValue().getCity());
-//                        System.out.println(iterate.getValue().getState());
-//                        System.out.println(iterate.getValue().getZip());
-//                        System.out.println(iterate.getValue().getPhone_no());
-//                        System.out.println(iterate.getValue().getEmail());
-//                    }
         }
         else{
             System.out.println("User Not Found !!");
